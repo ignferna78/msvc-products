@@ -11,6 +11,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Implementación del servicio de gestión de productos.
+ * <p>
+ * Proporciona operaciones para consultar productos y añadir a cada uno
+ * el puerto del servidor en el que se está ejecutando la aplicación.
+ */
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -23,6 +29,7 @@ public class ProductServiceImpl implements ProductService {
         this.enviroment = enviroment;
     }
 
+    /** {@inheritDoc} */
     @Override
     @Transactional(readOnly = true)
     public List<Product> findAll() {
@@ -32,6 +39,7 @@ public class ProductServiceImpl implements ProductService {
         }).collect(Collectors.toList());
     }
 
+    /** {@inheritDoc} */
     @Override
     @Transactional(readOnly = true)
     public Optional<Product> findById(Long id) {

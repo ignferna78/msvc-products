@@ -29,12 +29,25 @@ public class ProductController {
     }
 
 
+    /**
+     * Obtiene la lista de todos los productos disponibles.
+     *
+     * @return una respuesta HTTP 200 (OK) con la lista de productos
+     */
     @GetMapping
     public ResponseEntity<?> list() {
         System.out.println("Atendiendo petición desde: " + instance);
         return ResponseEntity.ok(this.service.findAll());
     }
 
+
+    /**
+     * Obtiene los detalles de un producto a partir de su identificador.
+     *
+     * @param id identificador del producto que se desea consultar
+     * @return una respuesta HTTP 200 (OK) con el producto si existe,
+     *         o una respuesta HTTP 404 (Not Found) si no se encuentra
+     */
     @GetMapping("/{id}")
     public ResponseEntity<?> details(@PathVariable Long id) {
         Optional<Product> productOptional = service.findById(id);

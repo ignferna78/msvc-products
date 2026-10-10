@@ -6,6 +6,14 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * Representa un producto almacenado en la base de datos.
+ * <p>
+ * Mapea la tabla {@code products} y contiene la información del producto,
+ * incluyendo su identificador, nombre, precio y fecha de creación.
+ * El puerto de la instancia del microservicio se utiliza como dato
+ * transitorio y no se almacena en la base de datos.
+ */
 @Entity
 @Table(name = "products")
 @Data
